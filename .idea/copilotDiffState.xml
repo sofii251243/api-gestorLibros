@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/Dockerfile">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/Dockerfile" />
+              <option name="originalContent" value="# Docker configuration for BookLog API&#10;FROM openjdk:17-jdk-slim&#10;&#10;WORKDIR /app&#10;&#10;COPY build/libs/api-movil-gestor-libros-1.0-SNAPSHOT.jar app.jar&#10;&#10;EXPOSE 8080&#10;&#10;ENTRYPOINT [&quot;java&quot;, &quot;-jar&quot;, &quot;app.jar&quot;]&#10;&#10;" />
+              <option name="updatedContent" value="# Docker configuration for BookLog API&#10;FROM eclipse-temurin:17-jre-jammy&#10;&#10;WORKDIR /app&#10;&#10;COPY build/libs/api-movil-gestor-libros-1.0-SNAPSHOT.jar app.jar&#10;&#10;EXPOSE 8080&#10;&#10;ENTRYPOINT [&quot;java&quot;, &quot;-jar&quot;, &quot;app.jar&quot;]&#10;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
