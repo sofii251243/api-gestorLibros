@@ -8,7 +8,7 @@
             <PendingDiffInfo>
               <option name="filePath" value="$PROJECT_DIR$/Dockerfile" />
               <option name="originalContent" value="# Docker configuration for BookLog API&#10;FROM openjdk:17-jdk-slim&#10;&#10;WORKDIR /app&#10;&#10;COPY build/libs/api-movil-gestor-libros-1.0-SNAPSHOT.jar app.jar&#10;&#10;EXPOSE 8080&#10;&#10;ENTRYPOINT [&quot;java&quot;, &quot;-jar&quot;, &quot;app.jar&quot;]&#10;&#10;" />
-              <option name="updatedContent" value="# Docker configuration for BookLog API&#10;FROM eclipse-temurin:17-jre-jammy&#10;&#10;WORKDIR /app&#10;&#10;COPY build/libs/api-movil-gestor-libros-1.0-SNAPSHOT.jar app.jar&#10;&#10;EXPOSE 8080&#10;&#10;ENTRYPOINT [&quot;java&quot;, &quot;-jar&quot;, &quot;app.jar&quot;]&#10;&#10;" />
+              <option name="updatedContent" value="# Build stage: compila el jar dentro del contenedor&#10;FROM gradle:8.7-jdk17 AS build&#10;WORKDIR /home/gradle/src&#10;COPY --chown=gradle:gradle . .&#10;RUN gradle clean bootJar --no-daemon&#10;&#10;# Runtime stage: imagen liviana para ejecutar la app&#10;FROM eclipse-temurin:17-jre-jammy&#10;WORKDIR /app&#10;COPY --from=build /home/gradle/src/build/libs/api-movil-gestor-libros-1.0-SNAPSHOT.jar app.jar&#10;EXPOSE 8080&#10;ENTRYPOINT [&quot;java&quot;, &quot;-jar&quot;, &quot;app.jar&quot;]&#10;&#10;" />
             </PendingDiffInfo>
           </value>
         </entry>
